@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCD Polarization Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-effects">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+    </div>
+
+    <header class="hero">
+        <h1 class="glitch" data-text="THE VISUAL ANIMATION ROUTE">THE VISUAL ANIMATION ROUTE</h1>
+        <h2>How an <span class="highlight">LCD Pixel</span> Works</h2>
+        <p class="subtitle">An Interactive Simulation of Light Polarization & Liquid Crystals</p>
+    </header>
+
+    <main>
+        <div class="simulation-container" id="simBox">
+            <!-- Backlight -->
+            <div class="layer backlight-layer">
+                <div class="icon-box pulse">💡</div>
+                <div class="layer-title">Backlight<br><span>(Unpolarized Light)</span></div>
+            </div>
+
+            <div class="arrow-connector">
+                <div class="light-beam unpolarized-beam"></div>
+            </div>
+
+            <!-- Rear Polarizer -->
+            <div class="layer">
+                <div class="filter-box polarizer rear">
+                    <div class="filter-lines vertical"></div>
+                </div>
+                <div class="layer-title">Rear Polarizer<br><span>(Vertical Filter)</span></div>
+            </div>
+
+            <div class="arrow-connector">
+                <div class="light-beam polarized-vertical"></div>
+            </div>
+
+            <!-- Liquid Crystals -->
+            <div class="layer lc-wrapper">
+                <div class="lc-container" id="lcLayer">
+                    <div class="crystals" id="crystalGrid">
+                        <div class="crystal c1"></div>
+                        <div class="crystal c2"></div>
+                        <div class="crystal c3"></div>
+                        <div class="crystal c4"></div>
+                        <div class="crystal c5"></div>
+                    </div>
+                </div>
+                <div class="layer-title">Liquid Crystals<br><span id="voltageStatus" class="status-off">Voltage:
+                        OFF</span></div>
+            </div>
+
+            <div class="arrow-connector" id="arrow2">
+                <div class="light-beam twisted-light" id="arrow2-beam"></div>
+            </div>
+
+            <!-- Front Polarizer -->
+            <div class="layer">
+                <div class="filter-box polarizer front">
+                    <div class="filter-lines horizontal"></div>
+                </div>
+                <div class="layer-title">Front Polarizer<br><span>(Horizontal Filter)</span></div>
+            </div>
+
+            <div class="arrow-connector">
+                <div class="light-beam display-beam" id="output-beam"></div>
+            </div>
+
+            <!-- Screen Output -->
+            <div class="layer">
+                <div class="screen-output" id="screenOutput">
+                    <div class="pixel-state">ON</div>
+                </div>
+                <div class="layer-title">Display Screen<br><span>(Pixel Output)</span></div>
+            </div>
+        </div>
+
+        <div class="controls-section">
+            <button id="toggleBtn" class="premium-btn off-state" onclick="toggleVoltage()">
+                <div class="btn-content">
+                    <span class="btn-text">APPLY VOLTAGE</span>
+                    <span class="btn-subtext">Click to force crystals straight & turn Pixel OFF</span>
+                </div>
+                <div class="btn-glow"></div>
+            </button>
+
+            <div class="explanation-box glass-panel" id="explanationText">
+                <div class="state-badge off">Current State: Voltage OFF</div>
+                <p>The liquid crystals are <strong>relaxed</strong> in their natural twisted helix structure. They guide
+                    and twist the vertically polarized light by exactly 90 degrees as it passes through. Because the
+                    light becomes horizontally polarized, it perfectly slips through the front horizontal polarizer and
+                    illuminates the pixel!</p>
+            </div>
+        </div>
+
+        <section class="info-teaser glass-panel" onclick="window.location.href='info.html'">
+            <div class="teaser-content">
+                <h2>The Science Behind the Screen</h2>
+                <p>Want to understand the deep physics of polarization and how millions of these pixels work together to
+                    create the image you're looking at right now?</p>
+                <div class="read-more">Explore Comprehensive Summary <span>&rarr;</span></div>
+            </div>
+            <div class="teaser-visual">
+                <div class="abstract-shape"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
